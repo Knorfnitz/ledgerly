@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct ledgerlyApp: App {
+    private let env = AppEnvironment()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(env)
         }
     }
 }
