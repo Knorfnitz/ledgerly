@@ -9,4 +9,6 @@ import Foundation
 
 protocol ExpenseRepository {
     func add(_ expense: Expense) async throws
+    
+    func list(month: YearMonth) async throws -> [Expense]
 }

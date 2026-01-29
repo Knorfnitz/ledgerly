@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AddExpense: AddExpenseUseCase {
+struct AddExpense{
     private let expenseRepository: ExpenseRepository
 
     init(expenseRepository: ExpenseRepository) {
