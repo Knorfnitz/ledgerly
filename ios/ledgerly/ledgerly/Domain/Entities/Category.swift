@@ -7,14 +7,14 @@
 
 import Foundation
 
-public struct Category: Identifiable, Equatable, Hashable {
-    public typealias ID = UUID
+struct Category: Identifiable, Equatable, Hashable {
+    typealias ID = UUID
 
-    public let id: ID
-    public var name: String
-    public var icon: String?
+    let id: ID
+    var name: String
+    var icon: String?
 
-    public init(
+    init(
         id: ID = UUID(),
         name: String,
         icon: String? = nil

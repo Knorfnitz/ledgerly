@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum DomainError: Error, Equatable {
+enum DomainError: Error, Equatable {
     case invalidAmount
     case invalidCurrencyCode
 }

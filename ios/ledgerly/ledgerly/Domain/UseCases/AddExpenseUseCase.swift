@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol AddExpenseUseCase {
+protocol AddExpenseUseCase {
     func execute(_ expense: Expense) async throws
 }

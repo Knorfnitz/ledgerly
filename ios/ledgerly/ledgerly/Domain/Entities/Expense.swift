@@ -6,18 +6,18 @@
 //
 import Foundation
 
-public struct Expense: Identifiable, Equatable, Hashable {
-    public typealias ID = UUID
+struct Expense: Identifiable, Equatable, Hashable {
+    typealias ID = UUID
 
-    public let id: ID
-    public var amount: Decimal
-    public var currencyCode: String
-    public var date: Date
-    public var categoryId: Category.ID?
-    public var merchant: String?
-    public var note: String?
+    let id: ID
+    var amount: Decimal
+    var currencyCode: String
+    var date: Date
+    var categoryId: Category.ID?
+    var merchant: String?
+    var note: String?
 
-    public init(
+    init(
         id: ID = UUID(),
         amount: Decimal,
         currencyCode: String = "EUR",

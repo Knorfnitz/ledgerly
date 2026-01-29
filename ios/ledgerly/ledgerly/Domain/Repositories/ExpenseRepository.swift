@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol ExpenseRepository {
+protocol ExpenseRepository {
     func add(_ expense: Expense) async throws
 }
