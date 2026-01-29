@@ -44,9 +44,14 @@ final class ledgerlyTests: XCTestCase {
 // MARK: - Test Double
 
 private final class ExpenseRepositorySpy: ExpenseRepository {
+    
     var addedExpenses: [Expense] = []
 
     func add(_ expense: Expense) async throws {
         addedExpenses.append(expense)
+    }
+    
+    func list(month: YearMonth) async throws -> [Expense] {
+        []
     }
 }
