@@ -8,29 +8,45 @@
 import XCTest
 @testable import ledgerly
 
+@MainActor
 final class ledgerlyTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func test_execute_throwsWhenAmountIsZeroOrNegative() async {
+            let repo = ExpenseRepositorySpy()
+        let useCase = AddExpense(expenseRepository: repo)
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        let expense = Expense(amount: 0, currencyCode: "EUR")
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+            do {
+                try await useCase.execute(expense)
+                XCTFail("Expected to throw")
+            } catch let error as DomainError {
+                XCTAssertEqual(error, .invalidAmount)
+            } catch {
+                XCTFail("Unexpected error: \(error)")
+            }
         }
-    }
 
+        func test_execute_addsExpenseWhenValid() async throws {
+            let repo = ExpenseRepositorySpy()
+            let useCase = AddExpense(expenseRepository: repo)
+
+            let expense = Expense(amount: 12.50, currencyCode: "EUR")
+
+            try await useCase.execute(expense)
+
+            XCTAssertEqual(repo.addedExpenses.count, 1)
+            XCTAssertEqual(repo.addedExpenses.first, expense)
+        }
+
+}
+
+// MARK: - Test Double
+
+private final class ExpenseRepositorySpy: ExpenseRepository {
+    var addedExpenses: [Expense] = []
+
+    func add(_ expense: Expense) async throws {
+        addedExpenses.append(expense)
+    }
 }

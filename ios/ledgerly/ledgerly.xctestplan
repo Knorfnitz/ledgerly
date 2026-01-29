@@ -1,0 +1,45 @@
+{
+  "configurations" : [
+    {
+      "id" : "69032D67-FD79-48BE-A318-DF4E098FBFB2",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:ledgerly.xcodeproj",
+      "identifier" : "1E43D2402F2B878400539116",
+      "name" : "ledgerly"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:ledgerly.xcodeproj",
+        "identifier" : "1E43D24D2F2B878600539116",
+        "name" : "ledgerlyTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "skippedTests" : [
+        "ledgerlyUITests",
+        "ledgerlyUITests\/testExample()",
+        "ledgerlyUITests\/testLaunchPerformance()",
+        "ledgerlyUITestsLaunchTests",
+        "ledgerlyUITestsLaunchTests\/testLaunch()"
+      ],
+      "target" : {
+        "containerPath" : "container:ledgerly.xcodeproj",
+        "identifier" : "1E43D2572F2B878600539116",
+        "name" : "ledgerlyUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -27,11 +27,43 @@
 		1E43D2412F2B878500539116 /* ledgerly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ledgerly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E43D24E2F2B878600539116 /* ledgerlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ledgerlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E43D2582F2B878600539116 /* ledgerlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ledgerlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E43D2CA2F2BBE7700539116 /* ledgerly.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = ledgerly.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1E43D2C92F2BBBC200539116 /* Exceptions for "ledgerly" folder in "ledgerly" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				App/.gitkeep,
+				Data/Local/CoreData/.gitkeep,
+				Data/Local/Mappers/.gitkeep,
+				Data/Remote/APIClient/.gitkeep,
+				Data/Remote/DTOs/.gitkeep,
+				Data/Remote/Mappers/.gitkeep,
+				Data/Repositories/.gitkeep,
+				Data/Sync/OutboxQueue/.gitkeep,
+				Data/Sync/SyncEngine/.gitkeep,
+				Domain/Entities/.gitkeep,
+				Domain/Errors/.gitkeep,
+				Domain/Repositories/.gitkeep,
+				Domain/UseCases/.gitkeep,
+				Presentation/Budgets/.gitkeep,
+				Presentation/Categories/.gitkeep,
+				Presentation/Components/.gitkeep,
+				Presentation/Dashboard/.gitkeep,
+				Presentation/Expenses/.gitkeep,
+				Resources/.gitkeep,
+			);
+			target = 1E43D2402F2B878400539116 /* ledgerly */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		1E43D2432F2B878500539116 /* ledgerly */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1E43D2C92F2BBBC200539116 /* Exceptions for "ledgerly" folder in "ledgerly" target */,
+			);
 			path = ledgerly;
 			sourceTree = "<group>";
 		};
@@ -75,6 +107,7 @@
 		1E43D2382F2B878400539116 = {
 			isa = PBXGroup;
 			children = (
+				1E43D2CA2F2BBE7700539116 /* ledgerly.xctestplan */,
 				1E43D2432F2B878500539116 /* ledgerly */,
 				1E43D2512F2B878600539116 /* ledgerlyTests */,
 				1E43D25B2F2B878600539116 /* ledgerlyUITests */,
