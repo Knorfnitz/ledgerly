@@ -17,7 +17,15 @@ struct ExpensesListScreen: View {
             errorMessage: viewModel.errorMessage
         )
         .task {
-            await viewModel.load(month: YearMonth(year: 2026, month: 1))
+            let now = Date()
+            let components = Calendar.current.dateComponents([.year, .month], from: now)
+
+            let currentMonth = YearMonth(
+                year: components.year!,
+                month: components.month!
+            )
+
+            await viewModel.load(month: currentMonth)
         }
     }
 }
