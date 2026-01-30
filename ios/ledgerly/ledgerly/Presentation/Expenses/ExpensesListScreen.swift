@@ -21,8 +21,8 @@ struct ExpensesListScreen: View {
             let components = Calendar.current.dateComponents([.year, .month], from: now)
 
             let currentMonth = YearMonth(
-                year: components.year!,
-                month: components.month!
+                year: components.year ?? 2025,
+                month: components.month ?? 1
             )
 
             await viewModel.load(month: currentMonth)
