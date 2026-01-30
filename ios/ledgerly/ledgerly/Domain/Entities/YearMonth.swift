@@ -25,3 +25,13 @@ struct YearMonth: Equatable, Hashable, Comparable {
     }
 }
 
+extension YearMonth {
+    static func current(calendar: Calendar = .current) -> YearMonth {
+        let components = calendar.dateComponents([.year, .month], from: Date())
+        return YearMonth(
+            year: components.year ?? 1970,
+            month: components.month ?? 1
+        )
+    }
+}
+

@@ -32,4 +32,5 @@ final class ExpensesListViewModel: ObservableObject {
             errorMessage = "Failed to load expenses"
         }
     }
+    
 }

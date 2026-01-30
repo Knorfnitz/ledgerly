@@ -1,31 +1,35 @@
-//
-//  ExpensesListScreen.swift
-//  ledgerly
-//
-//  Created by Alexander Hasecke on 30.01.26.
-//
-
 import SwiftUI
 
 struct ExpensesListScreen: View {
     @StateObject var viewModel: ExpensesListViewModel
+    let addExpense: AddExpense
+
+    @State private var isAddSheetPresented = false
+    @State private var month = YearMonth.current()
 
     var body: some View {
-        ExpensesListView(
-            expenses: viewModel.expenses,
-            isLoading: viewModel.isLoading,
-            errorMessage: viewModel.errorMessage
-        )
-        .task {
-            let now = Date()
-            let components = Calendar.current.dateComponents([.year, .month], from: now)
-
-            let currentMonth = YearMonth(
-                year: components.year ?? 2025,
-                month: components.month ?? 1
+        NavigationStack {
+            ExpensesListView(
+                expenses: viewModel.expenses,
+                isLoading: viewModel.isLoading,
+                errorMessage: viewModel.errorMessage
             )
-
-            await viewModel.load(month: currentMonth)
+            .navigationTitle("Expenses")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button { isAddSheetPresented = true } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
+        }
+        .task {
+            await viewModel.load(month: month)
+        }
+        .sheet(isPresented: $isAddSheetPresented) {
+            AddExpenseSheet(addExpense: addExpense) {
+                await viewModel.load(month: month)
+            }
         }
     }
 }

@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var env: AppEnvironment
+    @EnvironmentObject private var env: AppEnvironment
+
     var body: some View {
         ExpensesListScreen(
-                    viewModel: ExpensesListViewModel(
-                        listExpenses: env.listExpenses
-                    )
-                )
+            viewModel: ExpensesListViewModel(listExpenses: env.listExpenses),
+            addExpense: env.addExpense
+        )
     }
 }
 
