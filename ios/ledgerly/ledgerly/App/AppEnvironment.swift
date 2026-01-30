@@ -15,6 +15,7 @@ final class AppEnvironment: ObservableObject {
     let listExpenses: ListExpenses
 
     init() {
+        #if DEBUG
         let seed: [Expense] = [
                 Expense(amount: 12.50, currencyCode: "EUR", date: .now),
                 Expense(amount: 8.99, currencyCode: "EUR", date: .now.addingTimeInterval(-3600 * 24)),
@@ -22,6 +23,9 @@ final class AppEnvironment: ObservableObject {
             ]
         
         let repo = InMemoryExpenseRepository(seed: seed)
+        #else
+        let repo = InMemoryExpenseRepository()
+        #endif
         self.expenseRepository = repo
         self.addExpense = AddExpense(expenseRepository: repo)
         self.listExpenses = ListExpenses(repository: repo)
