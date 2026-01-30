@@ -13,6 +13,7 @@ final class AppEnvironment: ObservableObject {
     let expenseRepository: ExpenseRepository
     let addExpense: AddExpense
     let listExpenses: ListExpenses
+    let deleteExpense: DeleteExpense
 
     init() {
         #if DEBUG
@@ -29,5 +30,6 @@ final class AppEnvironment: ObservableObject {
         self.expenseRepository = repo
         self.addExpense = AddExpense(expenseRepository: repo)
         self.listExpenses = ListExpenses(repository: repo)
+        self.deleteExpense = DeleteExpense(expenseRepository: repo)
     }
 }

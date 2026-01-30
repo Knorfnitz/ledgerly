@@ -13,7 +13,8 @@ struct ContentView: View {
     var body: some View {
         ExpensesListScreen(
             viewModel: ExpensesListViewModel(listExpenses: env.listExpenses),
-            addExpense: env.addExpense
+            addExpense: env.addExpense,
+            deleteExpense: env.deleteExpense
         )
     }
 }

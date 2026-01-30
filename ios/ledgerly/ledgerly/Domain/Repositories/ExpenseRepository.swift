@@ -12,4 +12,5 @@ protocol ExpenseRepository {
     
     func list(month: YearMonth) async throws -> [Expense]
     
+    func delete(id: UUID) async throws
 }

@@ -11,6 +11,7 @@ struct ExpensesListView: View {
     let expenses: [Expense]
     let isLoading: Bool
     let errorMessage: String?
+    let onDelete: (Expense) -> Void
 
     var body: some View {
         VStack {
@@ -33,6 +34,13 @@ struct ExpensesListView: View {
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
+                .swipeActions {
+                    Button(role: .destructive) {
+                        onDelete(expense)
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+                }
             }
         }
     }
@@ -45,6 +53,7 @@ struct ExpensesListView: View {
             Expense(amount: 8.99, currencyCode: "EUR", date: .now.addingTimeInterval(-86400))
         ],
         isLoading: false,
-        errorMessage: nil
+        errorMessage: nil,
+        onDelete: { _ in  }
     )
 }

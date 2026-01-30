@@ -27,4 +27,8 @@ final class InMemoryExpenseRepository: ExpenseRepository {
             return comps.year == month.year && comps.month == month.month
         }
     }
+    
+    func delete(id: UUID) async throws {
+        expenses.removeAll { $0.id == id }
+    }
 }
