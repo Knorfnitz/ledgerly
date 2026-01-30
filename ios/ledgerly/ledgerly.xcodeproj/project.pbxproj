@@ -27,7 +27,7 @@
 		1E43D2412F2B878500539116 /* ledgerly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ledgerly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E43D24E2F2B878600539116 /* ledgerlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ledgerlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E43D2582F2B878600539116 /* ledgerlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ledgerlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1E43D2CA2F2BBE7700539116 /* ledgerly.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = ledgerly.xctestplan; sourceTree = "<group>"; };
+		1E43D2CA2F2BBE7700539116 /* ledgerly.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ledgerly.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
